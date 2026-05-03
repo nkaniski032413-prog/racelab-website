@@ -13,35 +13,19 @@ body {
     color: white;
 }
 
-.sidebar {
-    position: fixed;
-    width: 220px;
-    height: 100%;
+/* Top Nav */
+.navbar {
+    position: sticky;
+    top: 0;
     background: #111;
-    padding-top: 20px;
-}
-
-.sidebar a {
-    display: block;
-    color: white;
     padding: 15px;
-    text-decoration: none;
-}
-
-.sidebar a:hover {
-    background: #1f1f1f;
-}
-
-.main {
-    margin-left: 220px;
-    padding: 20px;
+    text-align: center;
+    z-index: 1000;
 }
 
 .logo {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
-    text-align: center;
-    margin-bottom: 10px;
 }
 
 .logo span {
@@ -49,41 +33,79 @@ body {
 }
 
 .tagline {
-    text-align: center;
-    font-size: 14px;
-    margin-bottom: 20px;
+    font-size: 12px;
     color: #aaa;
 }
 
-section {
-    margin-bottom: 60px;
+/* Menu */
+.menu {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Content */
+.container {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 26px;
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+/* Cards */
+.card {
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+/* Form */
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
 }
 
 button {
+    width: 100%;
+    padding: 15px;
     background: #00d4ff;
     border: none;
-    padding: 10px 20px;
-    cursor: pointer;
+    font-size: 16px;
     font-weight: bold;
+    border-radius: 8px;
 }
 
 button:hover {
     background: #00aacc;
 }
 
-.card {
-    background: #1a1a1a;
-    padding: 20px;
-    margin: 10px 0;
-    border-radius: 10px;
-}
+/* Desktop upgrade */
+@media (min-width: 768px) {
+    .container {
+        max-width: 800px;
+        margin: auto;
+    }
 
-input, select, textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 5px;
+    .menu {
+        justify-content: center;
+        gap: 30px;
+    }
 }
 </style>
 
@@ -91,42 +113,36 @@ input, select, textarea {
 
 <body>
 
-<div class="sidebar">
+<div class="navbar">
     <div class="logo">RaceL<span>🚗b</span></div>
     <div class="tagline">Design it. Print it. Race it.</div>
 
-    <a href="#home">Home</a>
-    <a href="#schedule">Schedule</a>
-    <a href="#packages">Packages</a>
-    <a href="#help">Help</a>
+    <div class="menu">
+        <a href="#home">Home</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#packages">Packages</a>
+        <a href="#help">Help</a>
+    </div>
 </div>
 
-<div class="main">
+<div class="container">
 
 <section id="home">
     <h1>The Ultimate STEM Birthday Party Experience</h1>
-    <p>We bring 3D printing and racing directly to your party. Kids build, customize, and race their own cars.</p>
+    <p>We bring 3D printing and racing directly to your party.</p>
 
-    <h2>About Us</h2>
-    <p>RaceLab Mobile STEM is a mobile experience that combines engineering, creativity, and competition. We make learning fun without it feeling like school.</p>
-
-    <h2>How a Party Works</h2>
-    <p><b>Introduction:</b> Learn how cars and 3D printing work</p>
-    <p><b>Build:</b> Assemble your own car</p>
-    <p><b>Customize:</b> Modify design and performance</p>
-    <p><b>Race:</b> Compete in races</p>
-    <p><b>Finale:</b> Awards and take-home cars</p>
+    <h2>How It Works</h2>
+    <p>Kids build, customize, and race their own cars in a fun, fast-paced event.</p>
 </section>
 
 <section id="schedule">
-    <h1>Book Your Party</h1>
+    <h2>Book Your Party</h2>
 
     <iframe src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com"
-    style="border:0" width="100%" height="400"></iframe>
+    style="border:0" width="100%" height="300"></iframe>
 
-    <h2>Request Booking</h2>
+    <h3>Request Booking</h3>
 
-    <!-- IMPORTANT: replace yourID below -->
     <form action="https://formspree.io/f/yourID" method="POST">
         <input type="text" name="name" placeholder="Name" required>
         <input type="email" name="email" placeholder="Email" required>
@@ -148,44 +164,38 @@ input, select, textarea {
 </section>
 
 <section id="packages">
-    <h1>Packages</h1>
+    <h2>Packages</h2>
 
     <div class="card">
-        <h2>Basic - $250</h2>
-        <p>90-minute party, up to 8 kids, car kits, racing, kids keep cars</p>
+        <h3>Basic - $250</h3>
+        <p>90 minutes, up to 8 kids, car kits, racing</p>
     </div>
 
     <div class="card">
-        <h2>Standard - $350</h2>
-        <p>2-hour party, up to 12 kids, extra parts, racing tournament, prizes</p>
+        <h3>Standard - $350</h3>
+        <p>2 hours, up to 12 kids, upgrades, prizes</p>
     </div>
 
     <div class="card">
-        <h2>Premium - $500</h2>
-        <p>2-hour party, up to 15 kids, premium kits, medals, custom name stickers</p>
+        <h3>Premium - $500</h3>
+        <p>2 hours, up to 15 kids, premium kits, medals</p>
     </div>
 
-    <h2>Add-Ons</h2>
+    <h3>Add-Ons</h3>
     <div class="card">
         <p>Extra child: $15</p>
         <p>LED kit: $10</p>
         <p>Custom name print: $5</p>
         <p>Extra time: $50</p>
-        <p>Second track: $75</p>
-        <p>Themed decorations: $50</p>
     </div>
 </section>
 
 <section id="help">
-    <h1>Help</h1>
-
+    <h2>Help</h2>
     <p>Email: nkaniski032413@gmail.com</p>
 
-    <h2>FAQ</h2>
-    <p><b>Do kids keep the cars?</b> Yes.</p>
-    <p><b>What ages?</b> 8–14</p>
-    <p><b>Do you bring everything?</b> Yes.</p>
-    <p><b>Where can you set up?</b> Backyard, driveway, or park</p>
+    <p><b>Do kids keep the cars?</b> Yes</p>
+    <p><b>Ages?</b> 8–14</p>
 </section>
 
 </div>
